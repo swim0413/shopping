@@ -4,7 +4,7 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if(!req.session.user) res.redirect('/');
-    else res.render('main', { title: req.session.user['nickName'] });
+    else res.render('main', { userName: req.session.user['nickName'] });
 });
 
 router.post('/logout', function(req, res){

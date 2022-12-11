@@ -1,14 +1,84 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= userName %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <form action="/main/logout" method="post">
+    <div id="menu">
+      <h1 id="shoppingMallName">neoliberalism</h1>
+      <form action="/main/logout" method="post">
         <button id="logout_bt">로그아웃</button>
-    </form>
+      </form>
+      <h2 id="userName"><%= userName %></h2>
+      <a id="goShopping" href="#">shop</a>
+    </div>
+    <div id="desc">
+      <h1>Test</h1>
+      <p>
+        테스트테스트<br>
+        안녕하세요 안녕하세요 안녕
+      </p>
+    </div>
+    <div id="desc">
+      <h1>Test2</h1>
+      <p>
+        준비중 준비중<br>
+        학교가기 싫어가기 싫어 학교가기 싫어가기 싫어
+      </p>
+    </div>
   </body>
+  <style>
+    body{
+      background-color: black;
+      color: white;
+    }
+
+    #menu > *{
+      display: inline-block;
+      margin: auto;
+      margin-top: 10px;
+    }
+    #menu #shoppingMallName{
+      float: left;
+    }
+    #logout_bt, #goShopping, #userName{
+      float: right;
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+    }
+
+    #desc{
+      clear:both;
+      width: 50%;
+      margin: auto;
+      background-color: gray;
+      text-align: center;
+      border-radius: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 20px;
+      margin-top: 200px;
+    }
+
+    #logout_bt{
+      border: none;
+      background-color: black;
+      font-size: 12px;
+    }
+    #logout_bt:hover{
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    #shoppingMallName{
+      background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  </style>
 </html>

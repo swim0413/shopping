@@ -16,6 +16,13 @@ fs.readFile('./data/users/db.json', 'utf-8', (err, jsonFile)=>{
 });
 /* GET login page. */
 router.get('/', function(req, res, next) {
+    req.session.user = {/////////////!!!!!!!!!!!
+        id: null,
+        pw: null,
+        nickName: 'Guest',
+        authorized: true,
+        isGuest: true,
+    };
     if(!req.session.user) res.render('login', { title: 'login' });
     else res.redirect('/main');
 });
