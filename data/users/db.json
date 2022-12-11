@@ -1,19 +1,9 @@
 {
   "data": [
     {
-      "id": "asdf",
+      "id": "test",
       "pw": "1234",
-      "nickName": "수영"
-    },
-    {
-      "id": "wa",
-      "pw": "sans",
-      "nickName": "샌즈"
-    },
-    {
-      "id": "adf",
-      "pw": "fd",
-      "nickName": "sad"
+      "nickName": "테스트"
     }
   ]
 }
