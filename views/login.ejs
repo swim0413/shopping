@@ -4,24 +4,29 @@
     <title>로그인</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
   <body>
     
     <div id="action">
         <h1>로그인</h1>
         <div id="login">
-            <form action="/login" method="post">
-                아이디 <input id="id" type="text" name="login_id" placeholder="id 입력"><br>
-                비밀번호 <input id="pw" type="password" name="login_pw" placeholder="pw 입력"></input>
-                <button id="submit">로그인</button>
+            <form id="login_form" action="/login" method="post">
+                아이디 <input id="login_id" type="text" name="login_id" placeholder="아이디 입력"></input><br>
+                비밀번호 <input id="login_pw" type="password" name="login_pw" placeholder="비밀번호 입력"></input>
+                <br><button id="login_bt">로그인</button>
+            </form>
+            <form id="guestLogin_form" action="/login/guestLogin" method="post">
+                <button id="guestLogin_bt">게스트 로그인</button>
             </form>
         </div>
         <h1 id="register-title">회원가입하기</h1>
         <div id="register">
             <form action="/login/register" method="post">
-                아이디 <input id="id" type="text" name="register_id" placeholder="id 입력"><br>
-                비밀번호 <input id="pw" type="password" name="register_pw" placeholder="pw 입력"></input>
-                <button id="submit">회원가입</button>
+                아이디 <input id="register_id" type="text" name="register_id" placeholder="아이디 입력"></input><br>
+                비밀번호 <input id="register_pw" type="password" name="register_pw" placeholder="비밀번호 입력"></input><br>
+                닉네임 <input id="register_nickName" type="text" name="nickName" placeholder="닉네임 입력"></input>
+                <br><button id="register_bt">회원가입</button>
             </form>
         </div>
     </div>
@@ -30,16 +35,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
     body{
         font-family: 'Jua', sans-serif;
+        background-color: black;
     }
     #action{
         border: none;
-        background-color: aqua;
+        background-color: gray;
         width: fit-content;
         height: fit-content;
         border-radius: 20px;
-        padding: 10px;
+        padding: 20px;
         margin: auto auto;
         margin-top: 20%;
+        font-size: 25px;
     }
 
     input{
@@ -57,6 +64,50 @@
     button{
         border: none;
         border-radius: 10px;
+        width: 80px;
+        height: 30px;
+    }
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+
+    #guestLogin_bt{
+        width: 100px;
+    }
+
+    @media (max-width<= 480px) {
+	    #action{
+            border: none;
+            background-color: gray;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 20px;
+            padding: 10px;
+            margin: auto auto;
+            margin-top: 20%;
+            font-size: 60px;
+        }
+
+        input{
+            width: 300px;
+            height: 60px;
+            font-size: 50px;
+        }
+
+        #login, #register, h1{
+            margin: 40px;
+        }
+
+        button{
+            width: 150px;
+            height: 70px;
+            font-size: 30px;
+        }
+
+        h1{
+            font-size: 120px;
+        }
     }
   </style>
   <script>
@@ -69,6 +120,22 @@
                 $('#register').slideDown();
             }
         })
+        $('#login_bt').click(function(){
+            if($('#login_id').val().trim()==""){
+                alert('아이디가 없습니다!');
+            }else if($('#login_pw').val().trim()==""){
+                alert('비밀번호가 없습니다');
+            }
+        });
+        $('#register_bt').click(function(){
+            if($('#register_id').val().trim()==""){
+                alert('아이디가 없습니다!');
+            }else if($('#register_pw').val().trim()==""){
+                alert('비밀번호가 없습니다');
+            }else if($('#register_nickName').val().trim()==""){
+                alert('닉네임이 없습니다');
+            }
+        });
     })();
   </script>
 </html>
