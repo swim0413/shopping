@@ -1,0 +1,5 @@
+const collectionName = 'collectionName'
+const setting = {
+    dbUrl: `mongodb+srv://database:<password>@cluster0.ugmniie.mongodb.net/${collectionName}`,
+}
+module.exports = setting;
