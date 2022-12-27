@@ -63,17 +63,17 @@ async function isExist(id){
 }
 
 let db = null;
-if(!fs.existsSync('./data/users/db.json')){
-    let initial = JSON.parse('{"data": []}');
-    fs.writeFile('./data/users/db.json', JSON.stringify(initial, null, 2), 'utf-8', function(err){
-        if(err){
-            console.log(err);
-        }
-    })
-}
-fs.readFile('./data/users/db.json', 'utf-8', (err, jsonFile)=>{
-    db = JSON.parse(jsonFile);
-});
+// if(!fs.existsSync('./data/users/db.json')){
+//     let initial = JSON.parse('{"data": []}');
+//     fs.writeFile('./data/users/db.json', JSON.stringify(initial, null, 2), 'utf-8', function(err){
+//         if(err){
+//             console.log(err);
+//         }
+//     })
+// }
+// fs.readFile('./data/users/db.json', 'utf-8', (err, jsonFile)=>{
+//     db = JSON.parse(jsonFile);
+// });
 /* GET login page. */
 router.get('/', function(req, res, next) {
     //테스트 때 로그인 유지
