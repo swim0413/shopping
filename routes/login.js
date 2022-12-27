@@ -103,7 +103,7 @@ router.post('/', async (req, res) => {
         }else{
             req.session.user = {
                 id: id,
-                pw: pw,
+                pw: 'secret',
                 nickName: (await getDBInfo(id))['nickName'],
                 authorized: true,
                 isGuest: false,

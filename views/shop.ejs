@@ -9,33 +9,42 @@
   </head>
   <body>
     <div id="menu">
-      <h1 id="shoppingMallName">LiBEralS</h1>
+      <h1 id="shoppingMallName"><a href="/">LiBEralS</a></h1>
       <form action="/main/logout" method="post">
         <button id="logout_bt">로그아웃</button>
       </form>
       <h2 id="userName"><%= userName %></h2>
       <a id="goShopping" href="/shop">shop</a>
     </div>
-    <div id="desc">
-      <h1>Test</h1>
-      <p>
-        테스트테스트<br>
-        <%= userName %> 안녕하세요
-      </p>
-    </div>
-    <div id="desc">
-      <h1>Test2</h1>
-      <p>
-        준비중 준비중<br>
-        학교가기 싫어가기 싫어 학교가기 싫어가기 싫어
-        <%= userName %> <%= userName %>
-      </p>
-    </div>
+    <h1>products list</h1>
+    <% for(var i = 0; i < products.length; i++){ %>
+        <div id="product">
+            <h2 id="title"><%=products[i].title%></h2>
+            <img src=<%=products[i].base64_img%> alt=<%=JSON.stringify(products[i].title)%> id="product_img">
+            <p id="price"><%=products[i].price%>원</p>
+            <p id="product_desc"><%=products[i].desc%></p>
+        </div>
+    <% } %>
   </body>
   <style>
     body{
       background-color: black;
       color: white;
+    }
+
+    #product{
+        border: 1px solid white;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+
+    #product img{
+        width: 200px;
+        height: 200px;
     }
 
     #menu > *{
@@ -53,19 +62,6 @@
       color: white;
     }
 
-    #desc{
-      clear:both;
-      width: 50%;
-      margin: auto;
-      background-color: gray;
-      text-align: center;
-      border-radius: 10px;
-      width: fit-content;
-      height: fit-content;
-      padding: 20px;
-      margin-top: 200px;
-    }
-
     #logout_bt{
       border: none;
       background-color: black;
@@ -76,7 +72,7 @@
       border-radius: 10px;
     }
 
-    #shoppingMallName{
+    #shoppingMallName a{
       background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
       -webkit-background-clip: text;
       color: transparent;
