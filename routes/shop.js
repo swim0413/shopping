@@ -37,7 +37,7 @@ console.log(getDB())
 /* GET home page. */
 router.get('/', async function(req, res, next) {
     let products = await getDB();
-    products = JSON.stringify(products)
+    products = JSON.stringify(products);
     if(!req.session.user) res.redirect('/');
     else res.render('shop', { userName: req.session.user['nickName'], products: JSON.parse(products)});
 });

@@ -11,6 +11,8 @@ let mainRouter = require('./routes/main');
 let loginRouter = require('./routes/login');
 let shopRouter = require('./routes/shop');
 
+let adminRouter = require('./admin/admin');
+
 let app = express();
 
 // view engine setup
@@ -43,6 +45,8 @@ app.use('/users', usersRouter);
 app.use('/main', mainRouter);
 app.use('/login', loginRouter);
 app.use('/shop', shopRouter);
+
+app.use('/admin', adminRouter);
 
 
 // catch 404 and forward to error handler

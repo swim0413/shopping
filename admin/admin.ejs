@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>admin_page</title>
+</head>
+<body>
+    <form action="/admin/addProduct" method="post">
+        <fieldset>
+            <legend>상품추가</legend>
+            제목 : <input type="text" name="product_name"><br>
+            설명 : <input type="text" name="product_desc"><br>
+            가격 : <input type="text" name="product_price"><br>
+            사진 : <input type="file" id="fileUpload" accept='image/*' name="product_img"><br>
+            <img id="previewImg" width="300" alt="이미지 부분"><br>
+            base64:<input type="text" name="product_img_base64" id="product_img_base64" readonly><br>
+            <button type="submit">상품 추가</button>
+        </fieldset>
+    </form>
+    <fieldset>
+        <legend>상품관리</legend>
+        <% for(var i = 0; i < products.length; i++){ %>
+            <fieldset id="product">
+                <legend><h4 id="title"><%=products[i].title%></h4></legend>
+                <img src=<%=products[i].base64_img%> width="60" alt=<%=JSON.stringify(products[i].title)%> id="product_img">
+                <form action="/admin/delProduct" method="post">
+                    id:<input type="text" value="<%=products[i]._id%>" name="delProductId" readonly>
+                    <button type="submit">상품삭제</button>
+                </form>
+                <!-- <p id="price"><%=products[i].price%>원</p> -->
+                <!-- <p id="product_desc"><%=products[i].desc%></p> -->
+            </fieldset>
+        <% } %>
+    </fieldset>
+</body>
+<script>
+    const fileInput = document.getElementById("fileUpload");
+    const handleFiles = (e) => {
+    const selectedFile = [...fileInput.files];
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(selectedFile[0]);
+    fileReader.onload = function () {
+        document.getElementById("previewImg").src = fileReader.result;
+        document.getElementById("product_img_base64").value = fileReader.result;
+    };
+};
+fileInput.addEventListener("change", handleFiles);
+</script>
+<style>
+    html{
+        background-color: black;
+        color: white;
+    }
+
+    #product{
+        width: fit-content;
+        height: fit-content;
+        display: inline;
+    }
+
+    fieldset{
+        border-radius: 10px;
+    }
+
+    legend{
+        font-size: 30px;
+    }
+
+    input{
+        border-radius: 15px;
+    }
+
+    button{
+        border: none;
+        border-radius: 10px;
+    }
+
+    button:hover{
+        background-color: black;
+        color: white;
+    }
+</style>
+</html>
