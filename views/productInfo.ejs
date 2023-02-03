@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="kp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='../public/stylesheets/style.css' />
+    <title><%=product.title%></title>
+</head>
+<body>
+    <img src=<%=product.base64_img%> alt=<%=JSON.stringify(product.title)%> id="product_img">
+    <h1>상품이름:<%=product.title%></h1>
+    <p>상품설명:<%=product.desc%></p>
+    <p>가격:<%=product.price%>원</p>
+    <h1>아직 개발중인 페이지!<br>세부설명이랑 간단설명으로 나눌것&&디자인도</h1>
+</body>
+<style>
+    html{
+        background-color: black;
+        color: white;
+    }
+
+    img{
+        width: 50%;
+        height: 50%;
+    }
+</style>
+</html>

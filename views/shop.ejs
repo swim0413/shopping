@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="menu">
-      <h1 id="shoppingMallName"><a href="/">LiBEralS</a></h1>
+      <h1 id="shoppingMallName"><a href="/">SWIM</a></h1>
       <form action="/main/logout" method="post">
         <button id="logout_bt">로그아웃</button>
       </form>
@@ -19,7 +19,7 @@
     <h1>products list</h1>
     <% for(var i = 0; i < products.length; i++){ %>
         <div id="product">
-            <h2 id="title"><%=products[i].title%></h2>
+            <h2 id="title"><a href="shop?product=<%=products[i]._id%>"><%=products[i].title%></a></h2>
             <img src=<%=products[i].base64_img%> alt=<%=JSON.stringify(products[i].title)%> id="product_img">
             <p id="price"><%=products[i].price%>원</p>
             <p id="product_desc"><%=products[i].desc%></p>
@@ -76,6 +76,11 @@
       background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
       -webkit-background-clip: text;
       color: transparent;
+    }
+
+    a{
+      text-decoration: none;
+      color: white;
     }
   </style>
 </html>
