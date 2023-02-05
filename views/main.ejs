@@ -16,20 +16,27 @@
       <h2 id="userName"><%= userName %></h2>
       <a id="goShopping" href="/shop">shop</a>
     </div>
+    
+    <div id="desc">
+      <h1>2023/2/5/일요일 업뎃내용</h1>
+      <p>
+        상품세부설명&&간단설명나눔<br>
+        상품이름 클릭가능
+        <%= userName %> ㅋㅋ <%= userName %>
+      </p>
+    </div>
+    
     <div id="desc">
       <h1>관리자페이지 완성</h1>
       <p>
-        ㅎㅇㅋㅋ<br>
+        shop클릭 가능<br>
         <%= userName %> 반갑다 ㅋ
       </p>
     </div>
+    
     <div id="desc">
-      <h1>2023/2/3업뎃내용</h1>
-      <p>
-        상품이름클릭가능<br>
-        아 안녕?
-        <%= userName %> ㅋㅋ <%= userName %>
-      </p>
+      <a href="https://instagram.com/_.suy.kr">오류&&개선사항 제보 하러가기</a><br>
+      <a href="https://github.com/swim0413/shopping">사이트 코드 보러가기</a>
     </div>
   </body>
   <style>
@@ -63,7 +70,7 @@
       width: fit-content;
       height: fit-content;
       padding: 20px;
-      margin-top: 200px;
+      margin-top: 100px;
     }
 
     #logout_bt{
@@ -80,6 +87,11 @@
       background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
       -webkit-background-clip: text;
       color: transparent;
+    }
+
+    a{
+      color: greenyellow;
+      text-decoration: none;
     }
   </style>
 </html>

@@ -15,10 +15,11 @@ router.get('/', async function(req, res, next) {
 router.post('/addProduct', async (req, res)=>{
     let product_name = req.body.product_name;
     let product_desc = req.body.product_desc;
+    let product_detail = req.body.product_detail;
     let product_price = req.body.product_price;
     let product_img_base64 = req.body.product_img_base64;
     if(product_name.trim()=="" || product_desc.trim()=="" || product_price.trim()=="" || product_img_base64.trim()=="") return res.redirect('/admin');
-    else await makeDB(product_name,product_desc,product_price,product_img_base64);
+    else await makeDB(product_name,product_desc,product_detail,product_price,product_img_base64);
     res.redirect('../shop')
 });
 
@@ -28,13 +29,13 @@ router.post('/delProduct', async (req, res)=>{
     res.redirect('../admin');
 })
 
-async function makeDB(p_n, p_d, p_p, p_i_b){
+async function makeDB(p_n, p_d, p_dt, p_p, p_i_b){
     let connection;
     try{
         connection = await connect();
         const db  = await connection.db('shop');
         const products = db.collection('products');
-        let form = {title:p_n,base64_img:p_i_b,price:p_p,desc:p_d};
+        let form = {title:p_n,base64_img:p_i_b,price:p_p,desc:p_d, detail: p_dt};
         await products.insertOne(form);
     }catch(e){
         console.log(e.message);
